@@ -29,8 +29,55 @@
 
     <script src="https://cdn.jsdelivr.net/gh/jeffreyouni/jeffreyouni.github.io/en/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+    <style>
 
+        table {
+          table-layout: fixed;
+          width: 1000px; /*表格宽度*/
+          max-width: 1000px; /*表格最大宽度，避免表格过宽*/
+          border: 1px solid #dedede; /*表格外边框设置*/
+          margin: 15px auto; /*外边距*/
+          border-collapse: collapse; /*使用单一线条的边框*/
+          word-break:break-all;
+          word-wrap:break-word;
+          empty-cells: show; /*单元格无内容依旧绘制边框*/
+        }
+        table th,
+        table td {
+          height: 15px; /*统一每一行的默认高度*/
+          border: 1px solid #dedede; /*内部边框样式*/
+          padding: 0 10px; /*内边距*/
+        }
+        table th {
+          font-weight: bold; /*加粗*/
+          text-align: center !important; /*内容居中，加上 !important 避免被 Markdown 样式覆盖*/
+          /*background: rgba(158,188,226,0.2); /*背景色*/
+        }
+        /*
+        table tbody tr:nth-child(2n) {
+          background: rgba(158,188,226,0.12);
+        }*/
+      
+        table th {
+          white-space: nowrap; /*表头内容强制在一行显示*/
+        }
+      
+        table th:nth-of-type(1){
+          width: 20%;
+        }
+        table th:nth-of-type(2){
+          width: 20%;
+        }
+        table th:nth-of-type(3){
+          width: 20%;
+        }
+        table th:nth-of-type(4){
+          width: 40%;
+        }
+      
+      </style>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body>
     <header class="navbar-fixed">
@@ -917,43 +964,6 @@ This is a tool that includes a lot of tools to reduce learning time and improve 
 </div>
 
 
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + 'From: Jingyouni<br />'
-            + 'Author: Jeffrey<br />'
-            + 'Link: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
-
 
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/jeffreyouni/jeffreyouni.github.io/en/libs/codeBlock/codeBlockFuction.js"></script>
@@ -985,76 +995,17 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <div class="toc-widget">
             <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
             <div id="toc-content"></div>
-            <!--
-            
-            
-
-    <div class="reprint" id="reprint-statement">
-        
-            <div class="reprint__author">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-user">
-                        Author:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="/en/about" rel="external nofollow noreferrer">Jeffrey</a>
-                </span>
-            </div>
-            <div class="reprint__type">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-link">
-                        Link:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="https://jeffreyouni.github.io/en/2020/07/01/Boutique/">https://jeffreyouni.github.io/en/2020/07/01/Boutique/</a>
-                </span>
-            </div>
-            <div class="reprint__notice">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-copyright">
-                        Reprint policy:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    All articles in this blog are used except for special statements
-                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    reprint polocy. If reproduced, please indicate source
-                    <a href="/en/about" target="_blank">Jeffrey</a>
-                    !
-                </span>
-            </div>
-        
-    </div>
-
-    <script async defer>
-      document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
-        M.toast({html: toastHTML})
-      });
-
-      function navToReprintStatement() {
-        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }
-    </script>
-
-
-            -->
         </div>
     </div>
-    
 </div>
 
 <!-- TOC 悬浮按钮. -->
 
-    
 <div id="floating-toc-btn" class="hide-on-med-and-down">
     <a class="btn-floating btn-large bg-color">
         <i class="fas fa-list-ul"></i>
     </a>
 </div>
-
 
 
 <script src="https://cdn.jsdelivr.net/gh/jeffreyouni/jeffreyouni.github.io/en/libs/tocbot/tocbot.min.js"></script>
@@ -1132,7 +1083,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         
     });
 </script>
-
     
 
 </main>
