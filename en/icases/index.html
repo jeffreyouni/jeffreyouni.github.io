@@ -218,358 +218,353 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                Blog
-                
+    <%- partial('_partial/post-cover') %>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>cos-album</title>
+    <script src="https://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
+</head>
+
+<body>
+    <!-- 你的其他内容，如评论等 -->
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    <% if (page.tags && page.tags.length) { %>
+                    <div class="article-tag">
+                        <% page.tags.forEach(function(tag) { %>
+                            <a href="<%- url_for(tag.path) %>">
+                                <span class="chip bg-color"><%= tag.name %></span>
+                            </a>
+                        <% }); %>
+                    </div>
+                    <% } else { %>
+                          <div class="article-tag">
+                            <span class="chip bg-color"><%- __("notag")  %></span>
+                          </div>
+                    <% } %>
+                </div>
+                <div class="col s5 right-align">
+                    <% if (page.categories && page.categories.length > 0) { %>
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        <% page.categories.forEach(category => { %>
+                            <a href="<%- url_for(category.path) %>" class="post-category">
+                                <%- category.name %>
+                            </a>
+                        <% }); %>
+                    </div>
+                    <% } %>
+                </div>
             </div>
 
-            <div class="description center-align">
+            <div class="post-info">
+                <% if (theme.postInfo.date) { %>
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i><%- __('publishDate') %>:&nbsp;&nbsp;
+                    <%- date(page.date, 'YYYY-MM-DD') %>
+                </div>
+                <% } %>
+
+                <% if (theme.postInfo.update) { %>
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i><%- __('updateDate') %>:&nbsp;&nbsp;
+                    <%- date(page.updated, 'YYYY-MM-DD') %>
+                </div>
                 
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: ['','Never really desperate, only the lost of the soul'],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+                <% } %>
+
+
+                <% if (theme.postInfo.wordCount) { %>
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i><%- __('wordCount') %>:&nbsp;&nbsp;
+                    <%= wordcount(page.content) %>
+                </div>
+                <% } %>
+
+                <% if (theme.postInfo.min2read) { %>
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i><%- __('readTimes') %>:&nbsp;&nbsp;
+                    <%= min2read(page.content) %> <%= __('Minutes') %>
+                </div>
+                <% } %>
+
+                <% if (theme.postInfo.readCount && theme.busuanziStatistics && theme.busuanziStatistics.enable) { %>
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i><%- __('readCount') %>:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                <% } %>
+                <!--
+                <div align="middle">
+                    <img src="/en/medias/contact.jpg" width="80%">
+                </div>
+            -->
             </div>
         </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <%- page.content %>
+                <% if (page.coslink && page.coslink.length > 0) {%>
+                <div id="box" class="box"></div>
+                <link rel="stylesheet" href="photos.css">
+                <script type="text/javascript">
+            
+                    function loadXMLDoc(xmlUrl) {
+                        try //Internet Explorer
+                        {
+                            xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+                        }
+                        catch (e) {
+                            try //Firefox, Mozilla, Opera, etc.
+                            {
+                                xmlDoc = document.implementation.createDocument("", "", null);
+                            }
+                            catch (e) { alert(e.message) }
+                        }
+            
+                        try {
+                            xmlDoc.async = false;
+                            xmlDoc.load(xmlUrl);
+                        }
+                        catch (e) {
+                            try //Google Chrome  
+                            {
+                                var chromeXml = new XMLHttpRequest();
+                                chromeXml.open("GET", xmlUrl, false);
+                                chromeXml.send(null);
+                                xmlDoc = chromeXml.responseXML.documentElement;
+                                //alert(xmlDoc.childNodes[0].nodeName);
+                                //return xmlDoc;    
+                            }
+                            catch (e) {
+                                alert(e.message)
+                            }
+                        }
+                        return xmlDoc;
+                    }
+            
+                    var xmllink = "<%= page.coslink %>"
+                    //访问域名链接就是我上面提到的那个访问域名xml链接
+            
+                    xmlDoc = loadXMLDoc(xmllink);
+                    var urls = xmlDoc.getElementsByTagName('Key');
+                    var date = xmlDoc.getElementsByTagName('LastModified');
+                    var wid = 250;
+                    var showNum = 12; //每个相册一次展示多少照片
+                    if ((window.innerWidth) > 1200) { wid = (window.innerWidth * 3) / 18; }
+                    var box = document.getElementById('box');
+                    var i = 0;
+            
+                    var content = new Array();
+                    var tmp = 0;
+                    var kkk = -1;
+                    for (var t = 0; t < urls.length; t++) {
+                        var bucket = urls[t].innerHTML;
+                        var length = bucket.indexOf('/');
+                        if (length === bucket.length - 1) {
+                            kkk++;
+                            content[kkk] = new Array();
+                            content[kkk][0] = { 'url': bucket, 'date': date[t].innerHTML.substring(0, 10) };
+                            tmp = 1;
+                        }
+                        else {
+                            content[kkk][tmp++] = { 'url': bucket.substring(length + 1), 'date': date[t].innerHTML.substring(0, 10) };
+                        }
+                    }
+            
+                    for (var i = 0; i < content.length; i++) {
+                        var conBox = document.createElement("div");
+                        conBox.id = 'conBox' + i;
+                        box.appendChild(conBox);
+                        var item = document.createElement("div");
+                        var title = content[i][0].url;
+                        //item.innerText = "Click the botton Chatting and Shopping"
+                        //item.innerHTML = "<button class=title style=background:url('" + xmllink + '/' + title + 'cover.jpg' + "');><span style=display:inline;><strong style=color:#f0f3f6; >" + title.substring(0, title.length - 1) + "</strong></span></button>";
+                        conBox.appendChild(item);
+                        for (var j = 1; j < content[i].length && j < showNum + 1; j++) {
+                            var con = content[i][j].url;
+                            console.log(con)
+                            var item = document.createElement("li");
+                            item.innerHTML = "<div class=imgbox id=imgbox style=height:auto;><a data-fancybox='gallery' href='" + xmllink + '/' + title + con + "'''><img class=imgitem src='" + xmllink +'/'+ title + con + "' alt='" + con.substring(0,con.length-4) + "'></div>"
+                                //<span>" + con.substring(0, con.length - 4) + "</span>";
+                            conBox.appendChild(item);
+            
+                        }
+                        if (content[i].length > showNum) {
+                            var moreItem = document.createElement("button");
+                            moreItem.className = "btn-more-posts";
+                            moreItem.id = "more" + i;
+                            moreItem.value = showNum + 1;
+                            let cur = i;
+                            moreItem.onclick = function () {
+                                moreClick(this, cur, content[cur], content[cur][0].url);
+                            }
+                            moreItem.innerHTML = "<span style=display:inline;><strong style=color:#f0f3f6;>More</strong></span>";
+                            conBox.appendChild(moreItem);
+                        }
+                    }
+            
+                    function moreClick(obj, cur, cont, title) {
+                        var parent = obj.parentNode;
+                        parent.removeChild(obj);
+                        var j = obj.value;
+                        var begin = j;
+                        for (; j < cont.length && j < Number(showNum) + Number(begin); j++) {
+                            console.log(Number(showNum) + Number(begin));
+                            var con = cont[j].url;
+                            var item = document.createElement("li");
+                            item.innerHTML = "<div class=imgbox id=imgbox style=height:" + wid + "px;><a data-fancybox='gallery' href='" + xmllink + '/' + title + con + "'''><img class=imgitem src='" + xmllink +'/'+ title + con + "' alt='" + con + "'></div><span>" + con.substring(0, con.length - 4) + "</span>";
+                            parent.appendChild(item);
+                            var v = item.getElementsByTagName('img');
+                        }
+                        if (cont.length > j) {
+                            obj.value = j;
+                            parent.appendChild(obj);
+                        }
+                    }
+            
+                </script>
+                <% } %>
+            </div>
+            <hr/>
+            <% if (theme.reward && theme.reward.enable) { %>
+                <%- partial('_partial/reward') %>
+            <% } %>
+
+            <%- partial('_partial/reprint-statement') %>
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    <% if (page.tags && page.tags.length) { %>
+                        <div class="article-tag">
+                            <% page.tags.forEach(function(tag) { %>
+                                <a href="<%- url_for(tag.path) %>">
+                                    <span class="chip bg-color"><%= tag.name %></span>
+                                </a>
+                            <% }); %>
+                        </div>
+                    <% } else { %>
+                        <div class="article-tag">
+                            <span class="chip bg-color"><%- __("notag")  %></span>
+                        </div>
+                    <% } %>
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <%- partial('_partial/share') %>
+                </div>
+            </div>
+            
+        </div>
     </div>
+
+    <% if (theme.gitalk && theme.gitalk.enable) { %>
+        <%- partial('_partial/gitalk') %>
+    <% } %>
+
+    <% if (theme.gitment.enable) { %>
+        <%- partial('_partial/gitment') %>
+    <% } %>
+
+    <% if (theme.disqus.enable) { %>
+        <%- partial('_partial/disqus') %>
+    <% } %>
+
+    <% if (theme.livere && theme.livere.enable) { %>
+    <%- partial('_partial/livere') %>
+    <% } %>
+
+    <% if (theme.valine && theme.valine.enable) { %>
+        <%- partial('_partial/valine') %>
+    <% } %>
+
+    <% if (theme.minivaline && theme.minivaline.enable) { %>
+        <%- partial('_partial/minivaline') %>
+    <% } %>
+
+    <%- partial('_partial/prev-next') %>
 </div>
 
-
+<% if (theme.copyright.enable) { %>
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "https://cdn.jsdelivr.net/gh/jeffreyouni/jeffreyouni.github.io/en/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('<%- theme.copyright.minCharNumber %>')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '<%- __("from")  %>: <%= config.title %><br />'
+            + '<%- __("author")  %>: <%= config.author %><br />'
+            + '<%- __("link")  %>: <a href="' + url + '">' + url + '</a><br />'
+            + '<%- theme.copyright.description %>';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
 </script>
+<% } %>
 
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="<%- theme.jsDelivr.url %><%- url_for('/libs/codeBlock/codeBlockFuction.js') %>"></script>
 
-    </div>
-</div>
+<!-- 代码语言 -->
+<% if (theme.code.lang) { %>
+<script type="text/javascript" src="<%- theme.jsDelivr.url %><%- url_for('/libs/codeBlock/codeLang.js') %>"></script>
+<% } %>
+
+<!-- 代码块复制 -->
+<% if (theme.code.copy) { %>
+<script type="text/javascript" src="<%- theme.jsDelivr.url %><%- url_for('/libs/codeBlock/codeCopy.js') %>"></script>
+<% } %>
+
+<!-- 代码块收缩 -->
+<% if (theme.code.shrink) { %>
+<script type="text/javascript" src="<%- theme.jsDelivr.url %><%- url_for('/libs/codeBlock/codeShrink.js') %>"></script>
+<% } %>
+
+<!-- 代码块折行 -->
+<% if (!theme.code.break) { %>
 <style type="text/css">
-	.main-inner{
-		width: 100%;
-	}
-	.main {
-    padding-bottom: 150px;
-    margin-top: 0px;
-    background: #121212;
-	}
-	.main-inner{
-		margin-top: unset;
-	}
-	.page-post-detail .post-meta{
-		display: none;
-	}
-	body {
-		background-image: unset;
-		background-attachment: unset;
-		background-size: 100%;
-		/*background-position: top left;*/
-	}
-	.header{
-		background: rgba(28, 25, 25, 0.6);
-		border-bottom: unset;
-	}
-	.menu .menu-item a{
-		    font-weight: 300;
-    		color: #e6eaed;
-	}
-
-	.imgbox{
-	 width: 100%;
-	 overflow: hidden;
-	 height: 250px;
-	 border-right: 1px solid #bcbcbc;
-	}
-	.box{
-		visibility: visible;
-		overflow: auto; 
-		zoom: 1;
-	}
-	.box li{
-	float: left;
-    width: 25%;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    list-style: none;
-    margin: 0;
-    /*display: inline;*/
-    padding: 0;
-    height: 360px;
-	}
-	.box li span{
-	display: block;
-    padding: 4% 7% 10% 7%;
-    min-height: 80px;
-    background: #fff;
-    color: #fff;
-    font-size: 16px;
-    background: #121212;
-    font-weight: 600;
-    line-height: 26px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-	}
-
-	img.imgitem{
-		padding: unset;
-		padding: unset;
-		border: unset;
-		position: relative;
-		padding: 0px;
-		height: auto;
-		width: 100%;
-	}
-
-
-div#posts.posts-expand {
-    border: unset;
-    padding: unset;
-    margin-bottom: 10px;
-}
-.posts-expand .post-body img{
-	padding: 0px !important;
-}
-.box p{
-	display: block;
-    background: #121212;
-    color: #fff;
-    font-size: 12px;
-    font-family: 'SwisMedium';
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-.box span strong{
-	background: rgba(0,0,0,0.4);
-	padding: 20px;
-}
-
-.posts-expand .post-title {
-	display: none;
-}
-/* .title{
-    display: inline-block;
-    vertical-align: middle;
-    /* background: url(https://image.idealli.com/bg11.jpg); 
-    font: 85px/250px 'ChaletComprimeMilanSixty';
-    background-position: left bottom !important;
-    color: #fff;
-    background-size: 100% auto !important; 
-	-webkit-background-size: cover; 
-	-moz-background-size: cover;
-	-o-background-size: cover;
-    width: 100%;
-    text-align: center;
-    border: unset;
-    height: 700px;
-    cursor: unset !important;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-} */
-.btn-more-posts{
-	display: inline-block;
-    vertical-align: middle;
-    font: 85px/250px 'ChaletComprimeMilanSixty';
-    color: #000;
-    width: 100%;
-    text-align: center;
-    border: unset;
-    height: 400px;
-    background-color: #121212;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-@media (max-width: 767px){
-	.box li {
-    width: 100%;
-}
-.title {
-    height: 200px;
-}
-
-.box span {
-    min-height: 80px;
-    border-right: unset;
-    font-size: 17px;
-}
-.box p{
-    border-right: unset;
-    font-size: 12px;
-  
-}
-.posts-expand {
-    margin: unset;
-}
-	div#comments.comments.v {
-    width: 96%;
-    padding-top: 50px;
-}
-
-
-}
-
-@media (min-width: 1600px){
-	.container .main-inner{
-		width: 100%;
-	}
-}
-
-/* .footer{
-	background-color: #121212 !important;
-} */
-.v * {
-    color: #f4f4f4 !important;
-}
-
-.v .vwrap .vmark .valert .vcode {
-    background: #00050b !important;
-}
-
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
+<% } %>
 
+</body>
 
-<main class="content">
-    <div id="box" class="box"></div>
-
-
-    <script type="text/javascript">
-    
-    function loadXMLDoc(xmlUrl) 
-    {
-        try //Internet Explorer
-        {
-            xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
-        }
-        catch(e)
-        {
-          try //Firefox, Mozilla, Opera, etc.
-            {
-              xmlDoc=document.implementation.createDocument("","",null);
-            }
-          catch(e) {alert(e.message)}
-        }
-        
-        try 
-        {
-              xmlDoc.async=false;
-              xmlDoc.load(xmlUrl);
-        }
-        catch(e) {
-            try //Google Chrome  
-              {  
-                var chromeXml = new XMLHttpRequest();
-                chromeXml.open("GET", xmlUrl, false);
-                chromeXml.send(null);
-                xmlDoc = chromeXml.responseXML.documentElement; 				
-                //alert(xmlDoc.childNodes[0].nodeName);
-                //return xmlDoc;    
-              }  
-              catch(e)  
-              {  
-                  alert(e.message)  
-              }  		  	
-        }
-        return xmlDoc; 
-    }
-    
-    var xmllink="https://jingyouni-1303166165.cos.na-toronto.myqcloud.com"
-    //访问域名链接就是我上面提到的那个访问域名xml链接
-    
-    xmlDoc=loadXMLDoc(xmllink);
-    var urls=xmlDoc.getElementsByTagName('Key');
-    var date=xmlDoc.getElementsByTagName('LastModified');
-    var wid=250;
-    var showNum=12; //每个相册一次展示多少照片
-    if ((window.innerWidth)>1200) {wid=(window.innerWidth*3)/18;}
-    var box=document.getElementById('box');
-    var i=0;
-    
-    var content=new Array();
-    var tmp=0;
-    var kkk=-1;
-    for (var t = 0; t < urls.length ; t++) {
-        var bucket=urls[t].innerHTML;
-        var length=bucket.indexOf('/');
-        if(length===bucket.length-1){
-            kkk++;
-            content[kkk]=new Array();
-            content[kkk][0]={'url':bucket,'date':date[t].innerHTML.substring(0,10)};
-            tmp=1;
-        }
-        else {
-            content[kkk][tmp++]={'url':bucket.substring(length+1),'date':date[t].innerHTML.substring(0,10)};
-        }
-    }
-    
-    for (var i = 0; i < content.length; i++) {
-        var conBox=document.createElement("div");
-        conBox.id='conBox'+i;
-        box.appendChild(conBox);
-        var item=document.createElement("div");
-        var title=content[i][0].url;
-        item.innerHTML="<button class=title style=background:url("+xmllink+'/'+title+"封面.jpg"+");><span style=display:inline;><strong style=color:#f0f3f6; >"+title.substring(0,title.length-1)+"</strong></span></button>";
-        conBox.appendChild(item);
-    
-        for (var j = 1; j < content[i].length && j < showNum+1; j++) {
-            var con=content[i][j].url;
-            var item=document.createElement("li");
-            item.innerHTML="<div class=imgbox id=imgbox style=height:"+wid+"px;><img class=imgitem src="+xmllink+'/'+title+con+" alt="+con+"></div><span>"+con.substring(0,con.length-4)+"</span><p>上传于"+content[i][j].date+"</p>";
-            conBox.appendChild(item);
-        }
-        if(content[i].length > showNum){
-            var moreItem=document.createElement("button");
-            moreItem.className="btn-more-posts";
-            moreItem.id="more"+i;
-            moreItem.value=showNum+1;
-            let cur=i;
-            moreItem.onclick= function (){
-                moreClick(this,cur,content[cur],content[cur][0].url);
-            }
-            moreItem.innerHTML="<span style=display:inline;><strong style=color:#f0f3f6;>加载更多</strong></span>";
-            conBox.appendChild(moreItem);
-        }
-    }
-    
-    function moreClick(obj,cur,cont,title){
-        var parent=obj.parentNode;
-        parent.removeChild(obj);
-        var j=obj.value;
-        var begin=j;
-        for ( ; j < cont.length && j < Number(showNum) + Number(begin); j++) {
-            console.log( Number(showNum) + Number(begin));
-            var con=cont[j].url;
-            var item=document.createElement("li");
-            item.innerHTML="<div class=imgbox id=imgbox style=height:"+wid+"px;><img class=imgitem src="+xmllink+'/'+title+con+" alt="+con+"></div><span>"+con.substring(0,con.length-4)+"</span><p>上传于"+cont[j].date+"</p>";
-            parent.appendChild(item);
-        }
-        if(cont.length > j){
-            obj.value=j;
-            parent.appendChild(obj);
-        }
-    }
-    
-    </script>
-    
-</main>
-
+</html>
 
     <footer class="page-footer bg-color">
     
