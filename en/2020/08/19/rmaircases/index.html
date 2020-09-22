@@ -400,40 +400,28 @@
 </blockquote>
 </center>
 
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><img src="/en/2020/08/19/rmaircases/aircase%20(1).jpg" class="" width="200" title="case1"></td>
-<td><img src="/en/2020/08/19/rmaircases/aircase%20(2).jpg" class="" width="200" title="case2"></td>
-<td><img src="/en/2020/08/19/rmaircases/aircase%20(3).jpg" class="" width="200" title="case3"></td>
-</tr>
-<tr>
-<td><img src="/en/2020/08/19/rmaircases/aircase%20(4).jpg" class="" width="200" title="case4"></td>
-<td><img src="/en/2020/08/19/rmaircases/aircase%20(5).jpg" class="" width="200" title="case5"></td>
-<td><img src="/en/2020/08/19/rmaircases/aircase%20(6).jpg" class="" width="200" title="case6"></td>
-</tr>
-<tr>
-<td><img src="/en/2020/08/19/rmaircases/aircase%20(7).jpg" class="" width="200" title="case7"></td>
-<td><img src="/en/2020/08/19/rmaircases/aircase%20(8).jpg" class="" width="200" title="case8"></td>
-<td><img src="/en/2020/08/19/rmaircases/aircase%20(9).jpg" class="" width="200" title="case9"></td>
-</tr>
-<tr>
-<td><img src="/en/2020/08/19/rmaircases/aircase%20(10).jpg" class="" width="200" title="case10"></td>
-<td><img src="/en/2020/08/19/rmaircases/aircase%20(11).jpg" class="" width="200" title="case11"></td>
-<td><img src="/en/2020/08/19/rmaircases/aircase%20(12).jpg" class="" width="200" title="case12"></td>
-</tr>
-<tr>
-<td><img src="/en/2020/08/19/rmaircases/aircase%20(13).jpg" class="" width="200" title="case13"></td>
-<td><img src="/en/2020/08/19/rmaircases/aircase%20(14).jpg" class="" width="200" title="case14"></td>
-<td></td>
-</tr>
-</tbody></table>
+<!--divID必须改-->
+<div id="airpods" class="box"></div>
+<script>
+var prename="aircase";//前缀 例子：case ().jpg
+var mininum=1;//图片最小值
+var maxnum=14;//图片最大值
+maxnum++;
+var box = document.getElementById('airpods');//divID必须改
+for (var i = 0; i < 1; i++) {
+var conBox = document.createElement("div");
+conBox.id = 'conBox' + i;
+box.appendChild(conBox);
+var item = document.createElement("div");
+conBox.appendChild(item);
+for (var j = mininum; j < maxnum; j++) {
+var item = document.createElement("li");
+item.innerHTML = "<div class=imgbox id=imgbox style=height:auto;><img class=imgitem src='" +prename+"%20(" + j + ").jpg" + "' alt='" + prename+ j + "'></div>"
+conBox.appendChild(item);
+}
+}
+</script>
+
 <blockquote>
 <center>Click the button for shopping</center>
 <center>
@@ -441,8 +429,309 @@
 <button>Chat and Shopping</button>
 </a>
 </blockquote>
-</center><!-- flag of hidden posts -->
+</center>
+
+<h3 id="Comments"><a href="#Comments" class="headerlink" title="Comments"></a>Comments</h3><!-- flag of hidden posts -->
                 
+                    <!-- <div id="box" class="box"></div> -->
+                    <!-- <link rel="stylesheet" href="css/photos.css"> -->
+                    <style>
+
+                        
+body {
+    background-image: unset;
+    background-attachment: unset;
+    background-size: 100%;
+    margin: unset;
+    /* background: #cef1c9!important; */
+    /*background-position: top left;*/
+}
+.title {
+    display: inline-block;
+    vertical-align: middle;
+    /* background: url(https://image.idealli.com/bg11.jpg); */
+    font: 85px/250px 'ChaletComprimeMilanSixty';
+    background-position: left bottom !important;
+    color: #fff;
+    background-size: 100% auto !important;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    width: 100%;
+    text-align: center;
+    border: unset;
+    height: 200x;
+    cursor: unset !important;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.imgbox{
+ width: 96%;
+ margin: auto;
+ overflow: unset;
+ height: 250px;
+}
+.box{
+    visibility: visible;
+    overflow: auto; 
+    zoom: 1;
+}
+.box li{
+float: left;
+width: 25%;
+position: relative;
+overflow: hidden;
+text-align: center;
+list-style: none;
+margin: 0;
+display: inline;
+padding: 0;
+}
+/* .box li span{
+display: block;
+padding: 4% 7% 10% 7%;
+min-height: 80px;
+background: #fff;
+color: #121212;
+font-size: 16px;
+background: #cef1c9;
+font-weight: 600;
+line-height: 26px;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+} */
+
+img.imgitem{
+    padding: unset;
+    padding: unset;
+    border: unset;
+    position: relative;
+    padding: 0px;
+    height: auto;
+    width: 97%;
+}
+
+
+.box p{
+display: block;
+background: #121212;
+color: #fff;
+font-size: 12px;
+font-family: 'SwisMedium';
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+text-align: center;
+}
+
+.box span strong{
+background: rgba(0,0,0,0.4);
+padding: 20px;
+}
+
+
+.btn-more-posts{
+display: inline-block;
+vertical-align: middle;
+font: 85px/250px 'ChaletComprimeMilanSixty';
+color: #000;
+width: 100%;
+text-align: center;
+border: unset;
+height: 400px;
+background-color: #121212;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+.comment{
+    width:60%;
+    margin: auto;
+}
+.caption{
+    background-color: rgba(66,185,131,0.1);
+}
+.img-margin {
+    margin: 25px auto 10px auto; !important
+}
+
+@media screen and (max-width: 767px){
+
+.comment{
+    width:96%;
+    margin: auto;
+}
+.box li {
+    float: left;
+    width: 33%;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    list-style: none;
+    margin: 0;
+    display: inline;
+    padding: 0;
+}
+.title {
+height: 200px;
+}
+
+img{
+padding: 0px !important;
+}
+
+.box span {
+min-height: 80px;
+border-right: unset;
+font-size: 17px;
+}
+.box p{
+border-right: unset;
+font-size: 12px;
+
+}
+
+body{
+    background: #fff;
+}
+
+}
+
+
+                    </style>
+                    <!-- <script type="text/javascript">
+                
+                        function loadXMLDoc(xmlUrl) {
+                            try //Internet Explorer
+                            {
+                                xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+                            }
+                            catch (e) {
+                                try //Firefox, Mozilla, Opera, etc.
+                                {
+                                    xmlDoc = document.implementation.createDocument("", "", null);
+                                }
+                                catch (e) { alert(e.message) }
+                            }
+                
+                            try {
+                                xmlDoc.async = false;
+                                xmlDoc.load(xmlUrl);
+                            }
+                            catch (e) {
+                                try //Google Chrome  
+                                {
+                                    var chromeXml = new XMLHttpRequest();
+                                    chromeXml.open("GET", xmlUrl, false);
+                                    chromeXml.send(null);
+                                    xmlDoc = chromeXml.responseXML.documentElement;
+                                    //alert(xmlDoc.childNodes[0].nodeName);
+                                    //return xmlDoc;    
+                                }
+                                catch (e) {
+                                    alert(e.message)
+                                }
+                            }
+                            return xmlDoc;
+                        }
+                
+                        var xmllink = ""
+                        //访问域名链接就是我上面提到的那个访问域名xml链接
+                
+                        xmlDoc = loadXMLDoc(xmllink);
+                        var urls = xmlDoc.getElementsByTagName('Key');
+                        console.log("URLs输出："+urls);
+                        var date = xmlDoc.getElementsByTagName('LastModified');
+                        var wid = 250;
+                        var showNum = 100; //每个相册一次展示多少照片
+                        if ((window.innerWidth) > 1200) { wid = (window.innerWidth * 3) / 18; }
+                        var box = document.getElementById('box');
+                        var i = 0;
+                
+                        var content = new Array();
+                        var tmp = 0;
+                        var kkk = -1;
+                        for (var t = 0; t < urls.length; t++) {
+                            var bucket = urls[t].innerHTML;
+                            console.log("bucket:"+bucket); //icases/aug01/xxx.jpg
+                            var length = bucket.indexOf('/');
+                            console.log(length);
+                            if (length === bucket.length - 1) {
+                                kkk++;
+                                content[kkk] = new Array();
+                                content[kkk][0] = { 'url': bucket, 'date': date[t].innerHTML.substring(0, 10) };
+                                tmp = 1;
+                            }
+                            else {
+                                content[kkk][tmp++] = { 'url': bucket.substring(length + 1), 'date': date[t].innerHTML.substring(0, 10) };
+                            }
+                        }
+                
+                        for (var i = 0; i < content.length; i++) {
+                            var conBox = document.createElement("div");
+                            conBox.id = 'conBox' + i;
+                            box.appendChild(conBox);
+                            var item = document.createElement("div");
+                            var title = content[i][0].url;
+                            console.log("title:"+title);
+                            //item.innerText = "Click the botton Chatting and Shopping"
+                            //item.innerHTML = "<button class=title style=background:url('" + xmllink + '/' + title + 'cover.jpg' + "');><span style=display:inline;><strong style=color:#f0f3f6; >" + title.substring(0, title.length - 1) + "</strong></span></button>";
+                            conBox.appendChild(item);
+                           // if (title == "icases/"){
+                                
+                                for (var j = 1; j < content[i].length && j < showNum + 1; j++) {
+                                
+                                var con = content[i][j].url;
+                                console.log("CON:"+con)
+                                var item = document.createElement("li");
+                               item.innerHTML = "<div class=imgbox id=imgbox style=height:auto;><a data-fancybox='gallery' href='" + xmllink + "/" + title + con + "'''><img class=imgitem src='" + xmllink +'/'+ title + con + "' alt='" + con.substring(0,con.length-4) + "'></div>"
+                                //item.innerHTML = "<div class=imgbox id=imgbox style=height:auto;><a data-fancybox='gallery' href='" + xmllink + '/icases/case (' + j+").jpg" + "'''><img class=imgitem src='" + xmllink +'/'+ title + con + "' alt='" + con.substring(0,con.length-4) + "'></div>"
+                                    
+                                    //<span>" + con.substring(0, con.length - 4) + "</span>";
+                                conBox.appendChild(item);
+                                }
+                                
+                                
+                                /** 每个相册一次展示多少照片
+                                if (content[i].length > showNum) {
+                                var moreItem = document.createElement("button");
+                                moreItem.className = "btn-more-posts";
+                                moreItem.id = "more" + i;
+                                moreItem.value = showNum + 1;
+                                let cur = i;
+                                moreItem.onclick = function () {
+                                    moreClick(this, cur, content[cur], content[cur][0].url);
+                                }
+                                moreItem.innerHTML = "<span style=display:inline;><strong style=color:#121212;>More</strong></span>";
+                                conBox.appendChild(moreItem);
+                                **/
+                          //  }
+
+                           // }
+                            
+                        }
+                        /**
+                        function moreClick(obj, cur, cont, title) {
+                            var parent = obj.parentNode;
+                            parent.removeChild(obj);
+                            var j = obj.value;
+                            var begin = j;
+                            for (; j < cont.length && j < Number(showNum) + Number(begin); j++) {
+                                console.log(Number(showNum) + Number(begin));
+                                var con = cont[j].url;
+                                var item = document.createElement("li");
+                                item.innerHTML = "<div class=imgbox id=imgbox style=height:auto;><a data-fancybox='gallery' href='" + xmllink + '/' + title + con + "'''><img class=imgitem src='" + xmllink +'/'+ title + con + "' alt='" + con.substring(0,con.length-4) + "'></div>"
+                                parent.appendChild(item);
+                                var v = item.getElementsByTagName('img');
+                            }
+                            if (cont.length > j) {
+                                obj.value = j;
+                                parent.appendChild(obj);
+                            }
+                        }**/
+                
+                    </script> -->
+                    
             </div>
             <hr/>
             
@@ -834,26 +1123,7 @@ Chat and Shopping
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+var prename="aircas
                         
                     </div>
                     <div class="publish-info">
@@ -903,26 +1173,7 @@ Chat and Shopping
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+var prename="aircas
                         
                     </div>
                     <div class="publish-info">
