@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>SSRTutorial</title>
+      <link href="/en/2020/10/07/SSRTutorial/"/>
+      <url>/en/2020/10/07/SSRTutorial/</url>
+      
+        <content type="html"><![CDATA[<h3 id="什么是SSR？"><a href="#什么是SSR？" class="headerlink" title="什么是SSR？"></a>什么是SSR？</h3><p>SSR，全称为ShadowSocksR，出于读写方便的目的，被简称为SSR。</p><p>一般来说，SSR目前主要有以下三种用途。</p><p>首先，与原版一样，SSR可以被用做科学上网。由于你懂的原因，一些正规网站在国内无法访问，比如Goolge、Youtube、Facebook、Twitter等。这给一些需要查阅科研资料、从事对外贸易、个人休闲娱乐的朋友造成了些许不便。而借助SSR我们可以轻易解决这些问题。</p><p>其次，由于SSR相比原版特有的混淆参数功能，国内一些手机用户用它来做免流。这一点很多朋友可能不了解，大概介绍一下，一些移动运营商存在一些特定的免流优惠，比如手机流量登录运营商客户端免流量。前期是简单的通过网址来判断是否符合免流条件。SSR安装在手机上后，上网时手机流量经SSR转发到上网地址，通过在SSR内加入免流网址的混淆参数后，让运营商判断失误，达到免流的目的。</p><p>最后，可以在国内模拟某些国外地区的IP，从而收看国外一些限制地区的视频资源，或者申请一些限制国家地区的服务。</p><h3 id="vpn和ss-ssr的区别和优缺点"><a href="#vpn和ss-ssr的区别和优缺点" class="headerlink" title="vpn和ss/ssr的区别和优缺点"></a>vpn和ss/ssr的区别和优缺点</h3><p>因为vpn是走的专用通道，它是用来给企业传输加密数据用的，所以vpn的流量特征很明显，以openvpn为例，更详细的在这里不说了，流量特征明显，防火墙直接分析你的流量，如果特征匹配，直接封掉。目前就FQ来说，PPTP类型的vpn基本死的差不多了，L2TP大部分地区干扰严重很不稳定。</p><p>ss/ssr的目的就是用来FQ的，而vpn的目的是用来加密企业数据的，对于vpn来说安全是第一位的，而对于ss/ssr来说穿透防火墙是第一位，抗干扰性强，而且对流量做了混淆，所有流量在通过防火墙的时候，基本上都被识别为普通流量，也就是说你FQ了，但是政府是检测不到你在FQ的。两者的出发点和着重点就不同，ss/ssr更注重流量的混淆加密。如果要安全匿名上网，可以用vpn+tor或者ss/ssr+tor。</p><p>而安全性方面还要补充的一点就是，国内vpn服务商，政府是很容易拿到他们的服务器日志的，如果他们真的这样做了，你FQ做了什么，一览无余。</p><h3 id="SSR怎么使用？"><a href="#SSR怎么使用？" class="headerlink" title="SSR怎么使用？"></a>SSR怎么使用？</h3><p>一般来说，可直接使用专用软件扫描节点二维码 或者 添加节点SSR://开头的链接 –&gt; 就是连接SSR的入口（节点），可以自己购买或者在搜索引擎搜索免费的。</p><blockquote><p>文章下方有免费的节点分享</p></blockquote><h4 id="SSR下载地址"><a href="#SSR下载地址" class="headerlink" title="SSR下载地址"></a>SSR下载地址</h4><p>进入下载页面后，点击展开Assets, 一般来说继续点击第一个选项（也就是第二步的箭头指向）就可以了。<br><img src="T1.png"></p><p>这里以Windows为例子<br>下载完成后，解压，然后后运行ShadowsocksR-dotnet2.0.exe 或 ShadowsocksR-dotnet4.0.exe 即可。<br><img src="T2.png" width="50%" height="50%"></p><p>1.SSR成功运行后，系统任务栏（桌面右下角时间那里，没有的话，就是隐藏起来了）会出现一个小飞机标志。</p><p>2.我们需要先添加SSR服务器，右键点击小飞机——二维码扫描 或者 剪贴板导入SSR://开头的链接<br><img src="T3.png" width="30%" height="30%"></p><p>3.服务器<br><img src="T4.png" width="30%" height="30%"></p><p>4.已添加的服务器列表<br><img src="T5.png" width="30%" height="30%"></p><p>5.节点列表 –&gt; 选择一个节点即可<br><img src="T6.png" width="30%" height="30%"></p><p>6.可查看服务器连接统计（步骤4的图片下方），选择最快速的节点<br><img src="T7.png" width="50%" height="50%"></p><p><a href="https://github.com/shadowsocksrr/shadowsocksr-csharp/releases" target="_blank" rel="noopener">Windows下载</a></p><p><a href="https://github.com/shadowsocksrr/shadowsocksr-android/releases" target="_blank" rel="noopener">Android下载</a></p><p><a href="https://github.com/shadowsocksr-backup/ShadowsocksX-NG/releases" target="_blank" rel="noopener">Mac下载</a></p><h5 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h5><p>Potatso Lite、Potatso、Shadowrocket都可以作为SSR客户端，但这些软件目前已经在大陆APP商店下架， 可以用美区的 Apple Id 账号来下载。<br>预计的搜索关键词：SSR客户端</p><h3 id="SSR节点分享"><a href="#SSR节点分享" class="headerlink" title="SSR节点分享"></a>SSR节点分享</h3><a href="https://jeffreyouni.github.io/en/2020/07/01/Boutique/" target="_blank"><button>点击这里！！！！！！</button></a><br><a href="https://lncn.org/" target="_blank">免费节点2</a>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Boutique</title>
       <link href="/en/2020/07/01/Boutique/"/>
       <url>/en/2020/07/01/Boutique/</url>
