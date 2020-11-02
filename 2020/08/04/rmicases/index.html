@@ -402,6 +402,28 @@
 </a>
 </center> -->
 
+<h4 id="十一月上新"><a href="#十一月上新" class="headerlink" title="十一月上新"></a>十一月上新</h4><!--divID必须改-->
+<div id="nov01" class="box"></div>
+<script>
+var prename="case";//前缀 例子：case ().jpg
+var mininum=92;//图片最小值
+var maxnum=96;//图片最大值
+maxnum++;
+var box = document.getElementById('nov01');//divID必须改
+for (var i = 0; i < 1; i++) {
+var conBox = document.createElement("div");
+conBox.id = 'conBox' + i;
+box.appendChild(conBox);
+var item = document.createElement("div");
+conBox.appendChild(item);
+for (var j = mininum; j < maxnum; j++) {
+var item = document.createElement("li");
+item.innerHTML = "<div class=imgbox id=imgbox style=height:auto;><img class=imgitem src='" +prename+"%20(" + j + ").jpg" + "' alt='" + prename+ j + "'></div>"
+conBox.appendChild(item);
+}
+}
+</script>
+
 <h4 id="Aug-01-2020"><a href="#Aug-01-2020" class="headerlink" title="Aug-01-2020"></a>Aug-01-2020</h4><div id="aug01" class="box"></div>
 <script>
 var prename="case";//前缀
@@ -1149,10 +1171,10 @@ body{
 
 
 
-Aug-01-2020
+十一月上新
 
-var prename="case";//前缀
-var num
+
+var prename="case";//前缀 例子：case ().j
                         
                     </div>
                     <div class="publish-info">
@@ -1196,10 +1218,10 @@ var num
 
 
 
-Aug-01-2020
+十一月上新
 
-var prename="case";//前缀
-var num
+
+var prename="case";//前缀 例子：case ().j
                         
                     </div>
                     <div class="publish-info">
@@ -1445,6 +1467,17 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
     
 
+
+<!-- boutique 联系方式 -->
+<script>
+    var contact = '';
+    contact += '<a href="/medias/reward/addWechat.jpg" target="_blank"><button>微信</button></a>';
+    contact += '<a href="https://instagram.com/jingyouni" target="_blank"><button>Instagram</button></a>';
+    contact += '<a href="https://wa.me/16478610109?text=你好,我想要买东西." target="_blank"><button>WhatsApp</button></a>';
+    window.onload = function () {
+        document.getElementById("contactInner").innerHTML = contact;
+    }
+</script>
 
 
 </main>
