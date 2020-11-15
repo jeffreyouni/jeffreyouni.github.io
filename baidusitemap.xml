@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://hacktechs.top/2020/05/05/EducationAssistant/</loc>
+    <lastmod>2020-11-15</lastmod>
+  </url>
+  <url>
     <loc>http://hacktechs.top/2020/10/07/ResourceSharing/</loc>
     <lastmod>2020-11-13</lastmod>
   </url>
@@ -15,9 +19,5 @@
   <url>
     <loc>http://hacktechs.top/2020/10/07/SSRTutorial/</loc>
     <lastmod>2020-10-07</lastmod>
-  </url>
-  <url>
-    <loc>http://hacktechs.top/2020/05/05/EducationAssistant/</loc>
-    <lastmod>2020-07-06</lastmod>
   </url>
 </urlset> 
