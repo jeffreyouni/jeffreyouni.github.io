@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://hacktechs.top/2020/05/05/EducationAssistant/</loc>
+    <loc>http://hacktechs.top/EducationAssistant/</loc>
     
     <lastmod>2020-11-15</lastmod>
     
@@ -16,7 +16,7 @@
   </url>
   
   <url>
-    <loc>http://hacktechs.top/2020/10/07/ResourceSharing/</loc>
+    <loc>http://hacktechs.top/ResourceSharing/</loc>
     
     <lastmod>2020-11-13</lastmod>
     
@@ -37,7 +37,7 @@
   </url>
   
   <url>
-    <loc>http://hacktechs.top/2020/07/01/Boutique/</loc>
+    <loc>http://hacktechs.top/Boutique/</loc>
     
     <lastmod>2020-11-02</lastmod>
     
@@ -51,14 +51,14 @@
   </url>
   
   <url>
-    <loc>http://hacktechs.top/2020/10/08/downloadBBCUvideo/</loc>
+    <loc>http://hacktechs.top/downloadBBCUvideo/</loc>
     
     <lastmod>2020-10-09</lastmod>
     
   </url>
   
   <url>
-    <loc>http://hacktechs.top/2020/10/07/SSRTutorial/</loc>
+    <loc>http://hacktechs.top/SSRTutorial/</loc>
     
     <lastmod>2020-10-07</lastmod>
     
@@ -81,7 +81,7 @@
 
   <url>
     <loc>http://hacktechs.top/</loc>
-    <lastmod>2020-11-15</lastmod>
+    <lastmod>2020-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
