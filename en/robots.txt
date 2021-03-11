@@ -1,7 +1,0 @@
-User-agent: *
-Disallow: /js/
-Disallow: /css/
-Disallow: /libs/
-
-Sitemap: http://hacktechs.top/sitemap.xml
-Sitemap: http://hacktechs.top/baidusitemap.xml
