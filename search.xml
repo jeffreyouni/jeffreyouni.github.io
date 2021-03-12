@@ -56,6 +56,19 @@
     
     
     <entry>
+      <title>WinRAR v6.0.1 已注册中文正式版本</title>
+      <link href="/WinRAR%20v6.0.1%20%E5%B7%B2%E6%B3%A8%E5%86%8C%E4%B8%AD%E6%96%87%E6%AD%A3%E5%BC%8F%E7%89%88%E6%9C%AC/"/>
+      <url>/WinRAR%20v6.0.1%20%E5%B7%B2%E6%B3%A8%E5%86%8C%E4%B8%AD%E6%96%87%E6%AD%A3%E5%BC%8F%E7%89%88%E6%9C%AC/</url>
+      
+        <content type="html"><![CDATA[<p>WinRAR v6.0.1 已注册中文正式版本</p><hr><p><img src="https://git.imweb.io/ldqk/imgbed/raw/master/2020/12/08/137f3000214ed9b00bc9d.png" alt=""></p><p>WinRAR是一款强大的压缩文件管理器，它提供了RAR和ZIP文件的完整支持，能解压ARJ、CAB、LZH、ACE、TAR、GZ、UUE、BZ2、JAR、ISO格式文件。WinRAR 从 4.20开始更好地利用了多处理器核心，不过为了加快压缩速度增加了内存占用。另外，RAR常规解压算法的速度稍有提高，恢复卷的创建和处理可以使用多个CPU核心来获得更高的处理速度。</p><p><img src="https://git.imweb.io/ldqk/imgbed/raw/master/2018/2/5ccbcec519b45.jpg" alt=""></p><h3 id="新版变化"><a href="#新版变化" class="headerlink" title="新版变化"></a>新版变化</h3><p><a href="https://rarlab.com/rarnew.htm" target="_blank" rel="noopener">http://rarlab.com/rarnew.htm</a></p><p>1. 提高了 16 核或更多核 CPU 下 RAR 的压缩速度。</p><p>2. 在创建 RAR5 压缩文件时采用“最快”方法 (相当于-m1命令行) 通常对于可高度压缩的数据类型实现更高的压缩比。</p><p>3. 所使用的最大线程数从 32 增加到 64。<br>命令行 -mt&lt;线程&gt; 开关接受 1 到 64 之间的值。</p><p>4. 在 WinRAR 设置的“常规”页面上的“多线程”参数被替换为“线程”输入字段，在这里可以指定所需的 CPU 线程数。它可以取 1 到最大可用逻辑 CPU 单元数。</p><p>5. WinRAR 在浏览压缩文件内容时显示已打包和未打包的文件夹大小。</p><p>6. “文件夹总数”字段被添加到 WinRAR“信息”命令显示的压缩参数列表中。在 Windows 资源管理器的存档属性中，相同的字段被添加到“存档”页。</p><p>7. 如果读取压缩文件内容花费了明显的时间，则显示一个包含进度条和“取消”按钮的窗口。它对于访问内容较慢的压缩格式 (如基于 tar.gz 和 tar.bz2 的大型 TAR) 非常有用。</p><p>8. 压缩和解压缩进度窗口，也可以作为其他一些命令的进度窗口，可以调整大小。</p><p>9. RAR5 压缩文件具有恢复记录且没有数据转移的“修复”性能得到了改进。它在 WinRAR 5.80 中恶化，现在恢复到原来的水平。</p><p>10. 当对具有加密文件名的 RAR5 压缩文件执行基于恢复记录的修复时，不会发出密码提示。<br>可以在不提供密码的情况下执行此命令。</p><p>11. 如果“转换压缩文件”命令中用于转换压缩文件的文件夹不存在，WinRAR 将尝试创建它。以前的版本无法在不存在的目标文件夹中创建转换后的压缩文件。</p><p>12. 添加 GZIP 压缩文件的解压缩支持及可选的文件头校验和字段。</p><p>13. 错误修正:</p><p>a)“修复”命令在处理具有有效恢复记录的压缩文件时可能错误地显示“恢复记录已损坏”消息。此消息没有阻止进一步的修复操作;</p><p>b) 如果快速打开“信息”选项在默认压缩用户配置文件中设置为“不添加”，并且该用户配置文件是通过某个命令或对话框加载的，WinRAR 在浏览 RAR 压缩文件内容时忽略快速打开信息。例如，它发生在打开压缩文件或密码对话框之后;</p><p>c) Ctrl+C“复制”快捷键在压缩文件的注释窗口不工作;</p><p>d) 如果设置了“将每个文件放入单独的压缩文件中”和“子文件夹内的压缩”选项，WinRAR 将忽略压缩文件名称字段中指定的目标路径。</p><h3 id="此版特点"><a href="#此版特点" class="headerlink" title="此版特点"></a>此版特点</h3><p>* 以英文版做为母版 + 周明波版官方简体中文升级, 并做了部分修改<br>* 集成 Real key，安装后即是注册版<br>* 无视文件锁定 (可编辑锁定的 RAR 文件, 方便修改注释、添加或删除文件!)<br>* 汉化命令行版本 RAR.EXE 和 UnRAR.exe<br>* 修改资源管理器右键查看 RAR 注释字体为宋体9号<br>* 感谢：D4llower (美化)、shuax、Black Hawk (技术支持)<br>* 其它方面……自己试吧……</p><h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p><a href="https://ldqk.lanzous.com/iuhh5mkbkoh" target="_blank" rel="noopener">https://ldqk.lanzous.com/iuhh5mkbkoh</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>EducationAssistant</title>
       <link href="/EducationAssistant/"/>
       <url>/EducationAssistant/</url>
