@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://hacktechs.top/MovieSubtitlesSearcher/</loc>
+    
+    <lastmod>2021-10-23</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://hacktechs.top/WinRAR%20v6.0.1%20%E5%B7%B2%E6%B3%A8%E5%86%8C%E4%B8%AD%E6%96%87%E6%AD%A3%E5%BC%8F%E7%89%88%E6%9C%AC/</loc>
     
     <lastmod>2021-03-12</lastmod>
@@ -88,7 +95,7 @@
 
   <url>
     <loc>http://hacktechs.top/</loc>
-    <lastmod>2021-03-12</lastmod>
+    <lastmod>2021-10-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
