@@ -1,0 +1,81 @@
+<!-- 
+This assignment focuses on the Implementation of AJAX calls to a server and presenting the data to the user.
+You should design an interface for the user with two or more buttons.
+oEach button retrieves a separate JSON object using a jQuery AJAX call. (1.5 mark)
+oOnce the JSON object is retrieved it is displayed in the HTML document. (1 mark)
+oFor JSON objects, modify a few properties using jQuery traversing methods. (1 mark)
+Upload your webpage and associated documents to a host of your choice. (Git Pages tutorial is available on the blackboard.)  Include the URL to your webpage as a part of your submission. You can put it in a text file or add it as a description to your submission. (1 mark)
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>Welcome to my appstore!</h1>
+    <button type="button" onclick="windows()">Windows Application</button>  <button type="button" onclick="macos()">MacOS Application</button>
+<p id="cracked"></p><button type="button" onclick="aboutMore()">About More</button><p id="aboutMore"></p>
+
+
+<script>
+    var adobeContent = '', windowsContent = '', macosContent = '', recoveryContent = '';
+    var buttonWin='';
+    buttonWin += '<button type="button" onclick="adobeAll()">Adobe 2021</button>';
+    buttonWin += '<button type="button" onclick="recoveryAll()">Recovery</button>';
+    buttonWin += '<br><br>'
+    $.ajax({
+        url: "assignment5_AppLink.json",//json文件位置，文件名
+        type: "GET",//请求方式为get
+        dataType: "json", //返回数据格式为json
+        success: function (data) {//请求成功完成后要执行的方法 
+            //给info赋值给定义好的变量
+            //windows
+            var windowsData = data.windows;
+            windowsContent += buttonWin;
+            for (var i = 0; i < windowsData.length; i++)
+                windowsContent += '<a href="javascript:void(0)" onclick=getLink("' + windowsData[i].link + '")>' + windowsData[i].id + "</a>" + "<br><a href=" + windowsData[i].wiki + ' target="_blank">Baidu Wiki</a>' + "<br>" + windowsData[i].desc + "<br><br>";
+            //macos
+            var macosData = data.macos;
+            for (var i = 0; i < macosData.length; i++)
+                macosContent += '<a href="javascript:void(0)" onclick=getLink("' + macosData[i].link + '")>' + macosData[i].id + "</a>" + "<br><a href=" + macosData[i].wiki + ' target="_blank">Baidu Wiki</a>' + "<br>" + macosData[i].desc + "<br><br>";
+            //adobe
+            var adobeData = data.adobe;
+            for (var i = 0; i < adobeData.length; i++)
+                adobeContent += '<a href="javascript:void(0)" onclick=getLink("' + adobeData[i].link + '")>' + adobeData[i].id + "</a>" + "<br>";
+            //recovery
+            var recoveryData = data.recovery;
+            for (var i = 0; i < recoveryData.length; i++)
+                recoveryContent += '<a href="javascript:void(0)" onclick=getLink("' + recoveryData[i].link + '")>' + recoveryData[i].id + "</a>" + "<br>" + recoveryData[i].desc + "<br><br>";
+        }
+    })
+    function windows() {
+        document.getElementById("cracked").innerHTML = windowsContent;
+    }
+    function adobeAll() {
+        document.getElementById("cracked").innerHTML = buttonWin + adobeContent;
+    }
+    function recoveryAll() {
+        document.getElementById("cracked").innerHTML = buttonWin +recoveryContent;
+    }
+    function macos() {
+        document.getElementById("cracked").innerHTML = macosContent;
+    }
+    function aboutMore() {
+        $.ajax({
+        url: "assignment5_AboutMore.json",//json文件位置，文件名
+        type: "GET",//请求方式为get
+        dataType: "json", //返回数据格式为json
+        success: function (data) {//请求成功完成后要执行的方法 
+            document.getElementById("aboutMore").innerHTML = "<strong>"+data.about+"</strong><br>"+data.more;
+        }
+    })        
+    }
+function getLink(old){
+    window.location.href="http://link.jscdn.cn/sharepoint/" + old;
+}
+</script>
+</body>
+
+</html>
